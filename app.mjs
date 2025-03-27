@@ -1,22 +1,15 @@
-import express from "express"
-const port = 3000;
+import express from "express";
 const app = express();
 import cors from "cors";
 const router = express.Router();
-import routes from "./Routes/routes.js"
+import userRoutes from "./routes/userRoutes.js";
 
-app.get('/',(req, res)=>{
-    res.send('Hello Worldddddd')
-})
-app.get('/users',(req, res)=>{
-    res.send('Hello Another got request is working')
-})
+app.use(cors());
+app.use(express.json());
 
-app.post('/user', (req,res) => {
-    res.send('Got a POST Request')
-})
+app.use("/api", userRoutes);
 
-app.listen(port,()=> {
-    console.log(`Example app listening on port ${port}`);
-})
+app.listen(3000, () => {
+  console.log("server is listening ");
+});
 

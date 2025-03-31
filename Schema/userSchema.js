@@ -13,3 +13,5 @@ const userSchema = Joi.object({
 
 
 export default userSchema
+
+//after preparing the Schema for anything, we go to controller where we right the logic

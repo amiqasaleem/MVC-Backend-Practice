@@ -6,7 +6,7 @@ import {
   deleteUser,
   getUser,
   createUser,
-} from "../controllers/userController.js";
+} from '../Controllers/userController';
 
 router.get("/users",getAllUsers);
 router.post("/user",createUser);
@@ -15,3 +15,4 @@ router.delete("/user/:id",deleteUser)
 router.put("/user/:id",updateUser)
 
 export default router
+

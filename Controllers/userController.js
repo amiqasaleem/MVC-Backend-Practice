@@ -1,15 +1,24 @@
 import userSchema from "../Schema/userSchema";
 import { nanoid } from "nanoid";
+
+
+//making temporary empty array
 let users = [];
+
+//for fetching the users
 
 const getAllUsers = (req, res) => {
   console.log("arhe ha req");
   try {
     res.send(users);
-  } catch (e) {
+  } 
+  catch (e) {
     console.log(e);
   }
 };
+
+
+//for creating the user
 
 const createUser = async (req, res) => {
   try {
@@ -20,12 +29,16 @@ const createUser = async (req, res) => {
 
     res.status(201).json("user created successfully");
     console.log(value);
-  } catch (error) {
+  } 
+  catch (error) {
     res.status(500).json({
       error: error?.details,
     });
   }
 };
+
+
+//for deleting user
 
 const deleteUser = (req, res) => {
   try {
@@ -38,10 +51,14 @@ const deleteUser = (req, res) => {
       deletedId: id,
       message: "user deleted successfully",
     });
-  } catch (error) {
+  } 
+  catch (error) {
     console.log(error);
   }
 };
+
+
+//for Updating the user
 
 const updateUser = (req, res) => {
   try {
@@ -54,10 +71,14 @@ const updateUser = (req, res) => {
       updatedUser: id,
       message: "user updated successfully",
     });
-  } catch (error) {
+  } 
+  catch (error) {
     console.log(error);
   }
 };
+
+//for fetching individual user
+
 const getUser = (req, res) => {
   try {
     const { id } = req.params;
@@ -67,9 +88,12 @@ const getUser = (req, res) => {
       user: foundUser,
       message: "user found successfully",
     });
-  } catch (error) {
+  } 
+  catch (error) {
     console.log(error);
   }
 };
 
 export { getAllUsers, updateUser, deleteUser, getUser, createUser };
+
+//saare controllers mein logic likhne k baad routes mein jaate hain execute karne k liye 

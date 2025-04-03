@@ -8,6 +8,14 @@ let users = [];
 
 //for fetching the users
 
+const getAllUsers = (req, res) => {
+    console.log("arhe ha req");
+    try {
+      res.send(users);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
 
 //for creating the user

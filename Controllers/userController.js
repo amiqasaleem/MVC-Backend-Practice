@@ -20,7 +20,21 @@ const getAllUsers = (req, res) => {
 
 //for creating the user
 
+const createUser = async (req, res) => {
+  try {
+    const value = await userSchema.validateAsync(req.body);
 
+    let user = { ...req.body, id: nanoid() };
+    users.push(user);
+
+    res.status(201).json("user created successfully");
+    console.log(value);
+  } catch (error) {
+    res.status(500).json({
+      error: error?.details,
+    });
+  }
+};
 
 //for deleting user
 
